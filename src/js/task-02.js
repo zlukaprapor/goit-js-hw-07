@@ -10,12 +10,12 @@ const ingredients = [
 
   const ulRef = document.querySelector('ul')
  
-  ingredients.forEach((el)=> {
- 
-  const creatIngredients = document.createElement ('li')
-  creatIngredients.textContent = el
-  ulRef.appendChild(creatIngredients)
-
+  const creatIngredients = ingredients.map(ingredient => {
+  const element = document.createElement('li');
+  element.textContent = ingredient;
+  return element;
   });
+
+  ulRef.append(...creatIngredients);
 
  

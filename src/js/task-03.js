@@ -19,13 +19,12 @@ const images = [
 
 const ulRef = document.querySelector('#gallery')
 
-images.forEach((el)=> {
-  
- const elemAdd = `<li><img src= "${el.url}" alt="${el.alt}" width=500px
- height=100%> </li>`
- ulRef.insertAdjacentHTML('beforeend',  elemAdd);
-
-});
+const galeryColection = images.map(
+  image =>
+    `<li> <img class="img-galery" src="${image.url}" alt="${image.alt}" width=500px
+ height=100%> </li>`,
+);
+ulRef.insertAdjacentHTML('beforeend', galeryColection.join(''));
 
 
 //минимальное оформление галереи гридами
@@ -36,4 +35,9 @@ const elemAddgreed = `#gallery {
     grid-template-columns: 1fr 1fr 1fr ;
     grid-gap: 1vw;
     }`
-elem.insertAdjacentHTML('beforeend',elemAddgreed);
+elem.insertAdjacentHTML('beforeend', elemAddgreed);
+
+
+
+
+
